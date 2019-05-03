@@ -134,8 +134,9 @@ class MailerMessage(models.Model):
                 self.sent = True
             except Exception as e:
                 self.do_not_send = True
+                self.save()
                 logger.error('Mail Queue Exception: {0}'.format(e))
-            self.save()
+                raise e
 
 
 @python_2_unicode_compatible
