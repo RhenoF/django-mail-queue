@@ -137,6 +137,7 @@ class MailerMessage(models.Model):
                 self.save()
                 logger.error('Mail Queue Exception: {0}'.format(e))
                 raise e
+            self.save()
 
 
 @python_2_unicode_compatible
